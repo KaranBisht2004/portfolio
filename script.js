@@ -1,3 +1,11 @@
+// Lenis
+const lenis = new Lenis({
+    autoRaf: true,
+    duration: 5.2,
+    smooth: true,
+    touchMultiplier: 2,
+});
+
 // cursor
 function cursor() {
     const cursor = document.querySelector(".cursor");
@@ -43,7 +51,7 @@ function cursor() {
         });
     });
 }
-
+// navbar
 function navbar() {
     const navLinks = document.querySelector(".nav-links");
     const menuBtn = document.querySelector("#menu");
@@ -60,6 +68,29 @@ function navbar() {
             menuBtn.textContent = "menu";
         });
     });
+}
+
+// profileCard
+function profileCard() {
+    const profileCard = document.querySelector(".profile-card");
+    const header = document.querySelector("header");
+
+    const handleCardZIndex = () => {
+        if (!profileCard || !header) return;
+
+        const cardRect = profileCard.getBoundingClientRect();
+        const navRect = header.getBoundingClientRect();
+
+
+        if (cardRect.top <= navRect.bottom) {
+            profileCard.classList.add("is-behind");
+        } else {
+            profileCard.classList.remove("is-behind");
+        }
+    };
+
+
+    window.addEventListener("scroll", handleCardZIndex, { passive: true });
 }
 
 // mouse trail
@@ -296,6 +327,7 @@ function skillCloudPhysics() {
     };
 }
 
+
 // work
 function ProjectPreviews() {
     document.querySelectorAll(".project-card").forEach((card) => {
@@ -340,6 +372,7 @@ function footer() {
 document.addEventListener("DOMContentLoaded", () => {
     cursor();
     navbar();
+    profileCard();
     mouseTrail();
     skillCloudPhysics();
     ProjectPreviews();
@@ -348,25 +381,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-function profileCard() {
-    const profileCard = document.querySelector(".profile-card");
-    const header = document.querySelector("header");
-
-    const handleCardZIndex = () => {
-        if (!profileCard || !header) return;
-
-        const cardRect = profileCard.getBoundingClientRect();
-        const navRect = header.getBoundingClientRect();
-
-
-        if (cardRect.top <= navRect.bottom) {
-            profileCard.classList.add("is-behind");
-        } else {
-            profileCard.classList.remove("is-behind");
-        }
-    };
-
-
-    window.addEventListener("scroll", handleCardZIndex, { passive: true });
-}
-profileCard();
