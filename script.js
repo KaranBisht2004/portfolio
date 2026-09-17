@@ -1,10 +1,31 @@
-// Lenis
 const lenis = new Lenis({
-    autoRaf: true,
-    duration: 5.2,
-    smooth: true,
+    duration: 1.2,
     touchMultiplier: 2,
+    autoRaf: false,
 });
+
+gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+});
+gsap.ticker.lagSmoothing(0);
+
+
+function anchorLinks() {
+    const headerHeight = document.querySelector(".site-header")?.offsetHeight ?? 0;
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+            const hash = link.getAttribute("href");
+            if (!hash || hash.length < 2) return;
+
+            const target = document.querySelector(hash);
+            if (!target) return;
+
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -headerHeight });
+        });
+    });
+}
 
 // cursor
 function cursor() {
@@ -70,33 +91,44 @@ function navbar() {
     });
 }
 
-// profileCard
+
 function profileCard() {
-    const profileCard = document.querySelector(".profile-card");
-    const header = document.querySelector("header");
+    const profileCardEl = document.querySelector(".profile-card");
+    const header = document.querySelector(".site-header");
+    if (!profileCardEl || !header) return;
 
-    const handleCardZIndex = () => {
-        if (!profileCard || !header) return;
+    let observer;
 
-        const cardRect = profileCard.getBoundingClientRect();
-        const navRect = header.getBoundingClientRect();
+    const setupObserver = () => {
+        if (observer) observer.disconnect();
 
+        const headerHeight = header.getBoundingClientRect().height;
 
-        if (cardRect.top <= navRect.bottom) {
-            profileCard.classList.add("is-behind");
-        } else {
-            profileCard.classList.remove("is-behind");
-        }
+        observer = new IntersectionObserver(
+            ([entry]) => {
+                profileCardEl.classList.toggle("is-behind", entry.intersectionRatio < 1);
+            },
+            {
+                root: null,
+                rootMargin: `-${headerHeight}px 0px 0px 0px`,
+                threshold: 1,
+            }
+        );
+
+        observer.observe(profileCardEl);
     };
 
-
-    window.addEventListener("scroll", handleCardZIndex, { passive: true });
+    setupObserver();
+    window.addEventListener("resize", setupObserver, { passive: true });
 }
 
 // mouse trail
 function mouseTrail() {
     const heroSection = document.querySelector(".hero-section");
     if (!heroSection) return;
+
+
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
 
     const trailImages = [
         "./media/mousetrail/1d058dc9-03ed-40a6-93b0-dd91f1624e50.webp",
@@ -148,6 +180,7 @@ function mouseTrail() {
 function skillCloudPhysics() {
     const container = document.querySelector(".skill-cloud");
     if (!container) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const { Engine, Composite, Bodies, Body, Mouse, MouseConstraint, World } = Matter;
 
@@ -287,7 +320,19 @@ function skillCloudPhysics() {
                 `translate3d(${(x - item.w * 0.5).toFixed(2)}px, ${(y - item.h * 0.5).toFixed(2)}px, 0) rotate(${angle.toFixed(4)}rad)`;
         }
     }
-    gsap.ticker.add(tick);
+
+
+    const visibilityObserver = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                gsap.ticker.add(tick);
+            } else {
+                gsap.ticker.remove(tick);
+            }
+        },
+        { threshold: 0 }
+    );
+    visibilityObserver.observe(container);
 
     let resizeRaf = 0;
     const resizeObserver = new ResizeObserver(() => {
@@ -320,6 +365,7 @@ function skillCloudPhysics() {
 
     return function destroy() {
         gsap.ticker.remove(tick);
+        visibilityObserver.disconnect();
         resizeObserver.disconnect();
         Mouse.clearSourceEvents(mouse);
         World.clear(world, false);
@@ -370,6 +416,7 @@ function footer() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    anchorLinks();
     cursor();
     navbar();
     profileCard();
@@ -380,4 +427,3 @@ document.addEventListener("DOMContentLoaded", () => {
     footer();
 
 });
-

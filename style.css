@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 * {
     padding: 0;
     margin: 0;
@@ -51,9 +49,9 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth removed on purpose — Lenis already owns scroll easing.
+   Having both the native smooth-scroll and Lenis animate scroll position at the
+   same time is what was causing the stutter/jitter on anchor-link navigation. */
 
 section {
     margin: 2.5rem auto;
@@ -287,7 +285,7 @@ section {
     object-fit: cover;
     pointer-events: none;
     z-index: 100;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.729);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
     will-change: transform, opacity;
 }
 
@@ -299,7 +297,7 @@ section {
     right: 5%;
     transform: rotate(6deg);
     z-index: 102;
-    width: 25rem;
+    width: 26rem;
     max-width: 90%;
     padding: 1.4rem;
     display: flex;
@@ -313,10 +311,13 @@ section {
     outline: none;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    /* width no longer animates on hover — animating layout properties (width) forces
+       a reflow every frame. transform + opacity are compositor-only, so hover now
+       scales the card instead of resizing its box model. */
     transition: background-color 0.45s var(--ease),
-        width 0.45s var(--ease),
         border-color 0.45s var(--ease),
-        box-shadow 0.45s var(--ease);
+        box-shadow 0.45s var(--ease),
+        transform 0.45s var(--ease);
 }
 
 .profile-card.is-behind {
@@ -324,7 +325,7 @@ section {
 }
 
 .profile-card:is(:hover, :focus-visible, :active) {
-    width: 27rem;
+    transform: rotate(6deg) scale(1.03);
     background-color: var(--card-hover-color);
     border-color: var(--card-hover-border);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.729), 0 0 20px rgba(255, 255, 255, 0.03);
@@ -494,10 +495,6 @@ section {
         top: 10%;
         right: 4%;
     }
-
-    .profile-card:is(:hover, :focus-visible, :active) {
-        width: 21rem;
-    }
 }
 
 @media (max-width: 700px) {
@@ -538,8 +535,7 @@ section {
     }
 
     .profile-card:is(:hover, :focus-visible, :active) {
-        width: 100%;
-        max-width: 22rem;
+        transform: none !important;
     }
 }
 
@@ -879,6 +875,7 @@ section {
 }
 
 .carousel {
+    padding-top: 3rem;
     width: 100%;
     margin-top: 5rem;
     overflow: hidden;
@@ -911,7 +908,7 @@ section {
     object-fit: cover;
     filter: grayscale(100%);
     opacity: 0.8;
-    transition: filter 0.3s ease, opacity 0.3s ease;
+    transition: filter 0.5s ease, opacity 0.5s ease;
 }
 
 .carousel:hover .carousel__item img {

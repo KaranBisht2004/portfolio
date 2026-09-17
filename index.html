@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karan — UI/UX Designer & Front-End Developer</title>
 
-   
+
     <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.26/dist/lenis.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.7.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -156,10 +156,10 @@
                 class="project-card">
                 <div class="project-card__media">
                     <img src="./media/apex-living-real-estate/apex-living-real-estate-image.webp"
-                        alt="Apex Living real estate website preview" class="project-card__img">
+                        alt="Apex Living real estate website preview" class="project-card__img" loading="lazy">
                     <video class="project-card__video"
-                        src="./media/apex-living-real-estate/apex-living-real-estate-video.mp4" muted loop
-                        playsinline></video>
+                        src="./media/apex-living-real-estate/apex-living-real-estate-video.mp4" muted loop playsinline
+                        preload="none"></video>
                 </div>
                 <div class="project-card__desc">
                     <div class="project-card__title">
@@ -180,9 +180,9 @@
             <a href="https://soft-roast.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card">
                 <div class="project-card__media">
                     <img src="./media/soft-roast/soft-roast image.webp" alt="Soft Roast coffee café website preview"
-                        class="project-card__img">
+                        class="project-card__img" loading="lazy">
                     <video class="project-card__video" src="./media/soft-roast/soft-roast video.mp4" muted loop
-                        playsinline></video>
+                        playsinline preload="none"></video>
                 </div>
                 <div class="project-card__desc">
                     <div class="project-card__title">
@@ -204,9 +204,9 @@
                 rel="noopener noreferrer" class="project-card">
                 <div class="project-card__media">
                     <img src="./media/branding/skincare/Comp 1 (0;00;00;00).webp" alt="velora skin care banding perview"
-                        class="project-card__img">
+                        class="project-card__img" loading="lazy">
                     <video class="project-card__video" src="./media/branding/skincare/skincarevideo.mp4" muted loop
-                        playsinline></video>
+                        playsinline preload="none"></video>
                 </div>
                 <div class="project-card__desc">
                     <div class="project-card__title">
@@ -225,9 +225,9 @@
                 rel="noopener noreferrer" class="project-card">
                 <div class="project-card__media">
                     <img src="./media/branding/icecream/coverimage.webp" alt="scoopy ice cream banding perview"
-                        class="project-card__img">
-                    <video class="project-card__video" src="./media/branding/icecream/video.mp4" muted loop
-                        playsinline></video>
+                        class="project-card__img" loading="lazy">
+                    <video class="project-card__video" src="./media/branding/icecream/video.mp4" muted loop playsinline
+                        preload="none"></video>
                 </div>
                 <div class="project-card__desc">
                     <div class="project-card__title">
@@ -246,19 +246,19 @@
         <!-- carousel -->
         <div class="carousel">
             <div class="carousel__track">
-                <div class="carousel__item"><img src="/media/posts/post1.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post2.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post3.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post4.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post5.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post6.webp" alt=""></div>
+                <div class="carousel__item"><img src="/media/posts/post1.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post2.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post3.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post4.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post5.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post6.webp" alt="" loading="lazy"></div>
 
-                <div class="carousel__item"><img src="/media/posts/post1.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post2.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post3.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post4.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post5.webp" alt=""></div>
-                <div class="carousel__item"><img src="/media/posts/post6.webp" alt=""></div>
+                <div class="carousel__item"><img src="/media/posts/post1.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post2.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post3.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post4.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post5.webp" alt="" loading="lazy"></div>
+                <div class="carousel__item"><img src="/media/posts/post6.webp" alt="" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -341,9 +341,8 @@
     <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </body>
 
 </html>
