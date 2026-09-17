@@ -99,10 +99,10 @@ function mouseTrail() {
     if (!heroSection) return;
 
     const trailImages = [
-        "https://cdn.cosmos.so/1d058dc9-03ed-40a6-93b0-dd91f1624e50?format=webp",
-        "https://cdn.cosmos.so/edf60cf2-4748-48c4-8968-a255c5320bae?format=webp",
-        "https://cdn.cosmos.so/9a0f2e6d-1b3d-40cd-a745-0fae1a939e31?format=webp",
-        "https://cdn.cosmos.so/b671d9a7-2da0-4789-abbc-33a5a4c28dfb?format=webp",
+        "./media/mousetrail/1d058dc9-03ed-40a6-93b0-dd91f1624e50.webp",
+        "./media/mousetrail/9a0f2e6d-1b3d-40cd-a745-0fae1a939e31.webp",
+        "./media/mousetrail/b671d9a7-2da0-4789-abbc-33a5a4c28dfb.webp",
+        "./media/mousetrail/edf60cf2-4748-48c4-8968-a255c5320bae.webp",
     ];
     const distanceThreshold = 250;
 
