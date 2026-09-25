@@ -919,6 +919,55 @@ section {
     filter: grayscale(0%) opacity(1) !important;
 }
 
+
+.video-container {
+width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-evenly;
+  gap: 15rem;
+  align-items: center;
+  margin: 0 auto;
+  padding: 4rem 0rem;
+  box-sizing: border-box;
+}
+
+.video-sections {   
+width: 300px;
+  background-color: var(--bg-color);   
+  border-radius: 0px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.video-sections:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+.video-sections video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  border-radius: 12px;
+}
+
+@media screen and (max-width: 768px) {
+  .video-container {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .video-sections {
+    flex: 1 1 100%; 
+  }
+}
+
 @keyframes scrollTrack {
     0% {
         transform: translateX(0);
