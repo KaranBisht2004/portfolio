@@ -183,6 +183,9 @@ section {
 }
 
 @media (max-width: 700px) {
+    .cursor{
+        display: none;
+    }
     .site-header {
         z-index: 1000;
         position: fixed;
@@ -766,13 +769,11 @@ section {
 
 @media (hover: hover) and (pointer: fine) {
     .project-grid:has(.project-card:hover) .project-card:not(:hover) {
-        filter: blur(3px);
         opacity: 0.1;
         transform: scale(0.99);
     }
 
     .project-card:hover {
-        filter: blur(0px);
         opacity: 1;
         z-index: 2;
     }
@@ -877,7 +878,7 @@ section {
 .carousel {
     padding-top: 3rem;
     width: 100%;
-    margin-top: 5rem;
+    margin: 8rem 0rem;
     overflow: hidden;
     /* -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent); */
@@ -890,7 +891,7 @@ section {
     animation: scrollTrack 25s linear infinite;
 }
 
-.carousel:hover .carousel__track {
+.carousel__track:hover{
     animation-play-state: paused;
 }
 
@@ -959,6 +960,7 @@ width: 300px;
 
 @media screen and (max-width: 768px) {
   .video-container {
+    width: 80vw;
     padding: 10px;
     gap: 15px;
   }
@@ -980,8 +982,8 @@ width: 300px;
 
 @media (max-width: 700px) {
     .carousel__item {
-        width: 220px;
-        height: 280px;
+        width: 400px;
+        height: 400px;
         margin-right: 12px;
     }
 
