@@ -16,7 +16,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -153,8 +153,13 @@
                     <img src="./media/apex-living-real-estate/apex-living-real-estate-image.webp"
                         alt="Apex Living real estate website preview" class="project-card__img" loading="lazy">
                     <video class="project-card__video"
-                        src="./media/apex-living-real-estate/apex-living-real-estate-video.mp4" muted loop playsinline
-                        preload="none"></video>
+                        src="./media/apex-living-real-estate/apex-living-real-estate-video.mp4" 
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="auto"
+                        ></video>
                 </div>
                 <div class="project-card__desc">
                     <div class="project-card__title">
@@ -176,8 +181,13 @@
                 <div class="project-card__media">
                     <img src="./media/soft-roast/soft-roast image.webp" alt="Soft Roast coffee café website preview"
                         class="project-card__img" loading="lazy">
-                    <video class="project-card__video" src="./media/soft-roast/soft-roast video.mp4" muted loop
-                        playsinline preload="none"></video>
+                    <video class="project-card__video" src="./media/soft-roast/soft-roast video.mp4" 
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                    ></video>
                 </div>
                 <div class="project-card__desc">
                     <div class="project-card__title">
@@ -239,34 +249,22 @@
         </div>
 
         <!-- carousel -->
-        <div class="carousel">
-            <div class="carousel__track">
-                <div class="carousel__item"><img src="/media/posts/post1.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post2.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post3.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post4.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post5.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post6.webp" alt="" loading="lazy"></div>
-
-                <div class="carousel__item"><img src="/media/posts/post1.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post2.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post3.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post4.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post5.webp" alt="" loading="lazy"></div>
-                <div class="carousel__item"><img src="/media/posts/post6.webp" alt="" loading="lazy"></div>
-            </div>
-        </div>
-
-        <div class="video-container">
-            <div class="video-sections">
-                <video src="/media/video/finel Project-1.mp4" controls
-                    poster="/media/video/project-ImageCover.png"></video>
-            </div>
-            <div class="video-sections">
-                <video src="/media/video/Finel Project -2.mp4" controls></video>
-            </div>
-
-        </div>
+       <div class="swiper carousel">
+    <div class="swiper-wrapper carousel__track">
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post1.webp" alt="Design project 1" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post2.webp" alt="Design project 2" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post3.webp" alt="Design project 3" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post4.webp" alt="Design project 4" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post5.webp" alt="Design project 5" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post6.webp" alt="Design project 6" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post1.webp" alt="Design project 1" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post2.webp" alt="Design project 2" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post3.webp" alt="Design project 3" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post4.webp" alt="Design project 4" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post5.webp" alt="Design project 5" loading="lazy" decoding="async"></div>
+        <div class="swiper-slide carousel__item"><img src="/media/posts/post6.webp" alt="Design project 6" loading="lazy" decoding="async"></div>
+    </div>
+</div>
     </section>
 
     <!-- SERVICES -->
@@ -340,6 +338,7 @@
     <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     <script defer src="script.js"></script>
 </body>

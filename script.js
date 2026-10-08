@@ -391,6 +391,23 @@ function ProjectPreviews() {
         });
     });
 }
+
+// carousel
+function carousel(){
+    new Swiper(".carousel", {
+    slidesPerView: "auto",
+    loop: true,
+    speed: 6000,
+    freeMode: true,
+    autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: false
+    }
+});
+}
+
+
 // servic
 function serviceList() {
     document.querySelectorAll(".service-item").forEach((item) => {
@@ -422,6 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
     profileCard();
     mouseTrail();
     skillCloudPhysics();
+    carousel();
     ProjectPreviews();
     serviceList();
     footer();
