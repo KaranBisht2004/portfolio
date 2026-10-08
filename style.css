@@ -935,7 +935,8 @@ width: 100%;
 }
 
 .video-sections {   
-width: 300px;
+  width: 300px;
+  height: 100%;
   background-color: var(--bg-color);   
   border-radius: 0px;
   overflow: hidden;
